@@ -26,7 +26,7 @@ export class ListaDestaqueComponent implements OnInit, OnDestroy {
 
    slides: BannerSlide[] = [
     {
-      image: '/lataffa-pisa.png',
+      image: 'lataffa-pisa.png',
       title: 'Leve e Marcante',
       subtitle: 'Um perfume equilibrado que combina suavidade com um toque inesquecível.',
       buttonText: 'Ver o valor',
@@ -35,7 +35,7 @@ export class ListaDestaqueComponent implements OnInit, OnDestroy {
       theme: 'light'
     },
     {
-      image: '/club.png',
+      image: 'club.png',
       title: 'Poder e Frescor',
       subtitle: 'Uma explosão cítrica com fundo amadeirado que transmite confiança e presença.',
       buttonText: 'Ver o valor',
@@ -44,7 +44,7 @@ export class ListaDestaqueComponent implements OnInit, OnDestroy {
       theme: 'light'
     },
     {
-      image: '/liquid.png',
+      image: 'liquid.png',
       title: 'Profundidade e Elegância',
       subtitle: 'Uma experiência olfativa rica, com notas amadeiradas que envolvem e impressionam.',
       buttonText: 'Ver o valor',

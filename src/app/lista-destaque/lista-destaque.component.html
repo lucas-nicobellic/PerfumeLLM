@@ -1,0 +1,954 @@
+<!--Parte dos destaques-->
+<br>
+<section class="highlights-section">
+
+
+  <div class="highlight-banner">
+    <div
+      class="slide-card"
+      *ngFor="let slide of slides; let i = index; trackBy: trackByIndex"
+      [class.active]="i === currentIndex"
+      [class.theme-dark]="slide.theme === 'dark'"
+      [class.theme-light]="slide.theme !== 'dark'"
+    >
+      <div class="slide-media">
+        <img [src]="slide.image" [alt]="slide.alt" />
+      </div>
+
+      <div class="slide-content">
+        <span class="badge-label">Destaque</span>
+        <h3>{{ slide.title }}</h3>
+        <p>{{ slide.subtitle }}</p>
+<button
+  *ngIf="slide.buttonText"
+  class="slide-button"
+  (click)="scrollToSection(slide.buttonLink)">
+  {{ slide.buttonText }}
+</button>
+
+      </div>
+    </div>
+
+    <button class="nav-button prev" type="button" (click)="prevSlide()" aria-label="Slide anterior">
+      &#10094;
+    </button>
+
+    <button class="nav-button next" type="button" (click)="nextSlide()" aria-label="Próximo slide">
+      &#10095;
+    </button>
+
+   <div class="dots"> 
+  <button type="button" *ngFor="let slide of slides; let i = index; trackBy: trackByIndex" [class.active]="i === currentIndex" (click)="goToSlide(i)" [attr.aria-label]="'Ir para slide ' + (i + 1)"> 
+
+  </button> 
+</div> 
+</div> 
+</section>
+
+
+
+
+<!--Aqui vai aparecer a lista dos perfumes com busca e etc-->
+<!--1 - LATTAFA - PRIMEIRO -->
+
+<div class="produtos-grid">
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/29DJhQIOpTdCSCdV8GWtp-2qwqUrbIwyA5wm2uI4E8I/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzcxNTk4Ni1NTEI5/OTI1NzgzNDIwMl8x/MTIwMjUtRS53ZWJw" alt="Perfume">
+    <h5 class="produto-nome">LATTAFA ASAD </h5>
+    <p class="produto-nome mb-2">100ml. EDP (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/k4WRV2PPdnWjFBuroKF-E3UhC9d3480ZfalJV8zt7dw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kaXNm/cmFnYW5jaWFzLmNv/bS9jZG4vc2hvcC9w/cm9kdWN0cy9sYXR0/YWZhLWhheWEtMi5q/cGc_dj0xNjk5ODA4/MTQ0" alt="Perfume">
+    <h5 class="produto-nome">Lattafa Haya </h5>
+    <p class="produto-nome mb-2">100ml. EDP (FEM)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/WvLgDho00RQzUhqAgHeig-V_F5ADTg2yzypJ4V60xL0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdG9u/ZWZyYWdyYW5jZXMu/Y29tL2Nkbi9zaG9w/L2ZpbGVzLzIud2Vi/cD92PTE3NTI4OTU0/NTAmd2lkdGg9MTQ0/NQ" alt="Perfume">
+    <h5 class="produto-nome">Lattafa Platin</h5>
+    <p class="produto-nome mb-2">100ml. EDP (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+
+<!-- segunda lista de perfumes-->
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/hcU2cyqI31UKsuzomlkypz7wjTLrFz5UIBFITuNDAeQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzY1OTE1My1NTEI5/Mzk3Mjc3NzYyM18x/MDIwMjUtRS53ZWJw" alt="perfumes">
+  <h5 class="produto-nome">Lattafa FAKHAR Rose</h5>
+  <p class="produto-nome mb-2">100ml. EDP (FEM)</p>
+  <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/rqKutOKXhwKvHHOS5u7hxlCCiMmd7OCKo1zzUxtW_1o/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLmVi/YXlpbWcuY29tL2lt/YWdlcy9nL1NCMEFB/ZVN3Vkxkby03VHIv/cy1sMTYwMC5qcGc" alt="perfume">
+    <h5 class="produto-nome">Lattafa FAKHAR Black</h5>
+    <p class="produto-nome mb-2">100ml.EDP (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/WdRB7ywsNGae2MReQq_RXChnIDcSityAm6m9H-n_a34/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzkzMjc4NS1DQlQ5/MDg1NjA5NTYwM18w/ODIwMjUtRS53ZWJw" alt="perfume">
+    <h5 class="produto-nome">Lattafa AMETYST </h5>
+    <p class="produto-nome mb-2">100ml. EDP (FEMININO)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+
+<!-- terceira-->
+
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/73EFpUc35eXbRYaiuFIV4_OR7Q7iv5Ruaf1j36UyQuw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/Xzg1NzExNS1NTEE5/NTk1NTYwNjk2MF8x/MDIwMjUtRS53ZWJw" alt="Perfume">
+    <h5 class="produto-nome">Lattafa FAKHAR Gold </h5>
+    <p class="produto-nome mb-2">100ml.EDP (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/7-1_u2Flxcc8G4t1nCcPesq-mb8GGBpTu_Od_Pdlg94/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzcxMjMzMS1NTEI4/OTI5MjMwNjY0Nl8w/ODIwMjUtRS53ZWJw" alt="perfume">
+    <h5 class="produto-nome">Lattafa KHAMRAH</h5>
+    <p class="produto-nome mb-2">100ml.EDP(MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/ftMRgX6y-HjvWImhaMIGOyt5C91M855hjmaZeHjeDjU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kaXNm/cmFnYW5jaWFzLmNv/bS9jZG4vc2hvcC9m/aWxlcy9sYXR0YWZh/LWFsLW5vYmxlLXdh/emVlci0yLmpwZz92/PTE3MDU0NDE5MjA" alt="perfume">
+    <h5 class="produto-nome">Lattafa WAZEER </h5>
+    <p class="produto-nome mb-2">100ml. EDP (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+
+<!--QUARTA-->
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/5146g4fGN4_NnBbxJd4ElccvelPdXyw1VXUNVlxUZb4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9ydWtt/aW5pbTIuZmxpeGNh/cnQuY29tL2ltYWdl/LzQxNi80MTYveGlm/MHEvcGVyZnVtZS9k/L24vYy8xMDAtYmx1/ZS1vdWQtZWF1LWRl/LXBhcmZ1bS1sYXR0/YWZhLW1lbi1vcmln/aW5hbC1pbWFoNzZh/aGhmcDl4Z3R2Lmpw/ZWc_cT03MCZjcm9w/PWZhbHNl" alt="Perfume">
+    <h5 class="produto-nome">Lattafa Blue Oud</h5>
+    <p class="produto-nome mb-2">100ml.EDP (UNISSEX)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/voTAJrRdvHnVnDYjXw2iXBGOpasaLa_AWJg7kxlZmzM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9OUV9OUF83/MTE2NzAtTUxCNzQ2/NTM3NjQyOTFfMDIy/MDI0LU8tbXVzay1z/YWxhbWEtbGF0dGFm/YS1lZHAtMTAwbWwu/d2VicA" alt="perfume">
+    <h5 class="produto-nome">Lattafa Musk Salama</h5>
+    <p class="produto-nome mb-2">100ml. EDP (UNISSEX)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/7NtYZ6s_jOUhXbfuy6GKEoxhmtVog4o18Xj-3ILkLCQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9OUV9OUF82/NTc0NzUtTUxVNzYw/MDA0Mzc2MDlfMDQy/MDI0LU8ud2VicA" alt="perfume">
+    <h5 class="produto-nome">Lattafa Opulent Oud EDP</h5>
+    <p class="produto-nome mb-2">100ml.EDP(UNISSEX)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+
+<!--QUINTA-->
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/UTyte9u8MbzljQFbdiYTXmt8-DFQ0XuA_vjWW2H1pNQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzkwNjQyNy1NTE01/MzYyMTM1OTI5NV8w/MjIwMjMtRS53ZWJw" alt="Perfume">
+    <h5 class="produto-nome">Lattafa Eternal OUD </h5>
+    <p class="produto-nome mb-2">100ml. EDP (MASC)</p>
+    <p class="preco-valor">R$311,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/6-CWDt9JQK6BQnU_7pw1uyzIKukquiCRKTgxo8e6I6s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudGNkbi5jb20u/YnIvaW1nL2ltZ19w/cm9kLzEzNjEzNzQv/YWxfYXJlZXFfMTAw/bWxfMV8yMDI1MDgw/NjA3NDg1M184MTJk/MmY5NmY4M2IucG5n" alt="perfume">
+    <h5 class="produto-nome">Lattafa Al Areeq Gold</h5>
+    <p class="produto-nome">100ml</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/L1tGAWkJ4XouqnEPNIkbLeGNDINuctejQHAHucxm0Ng/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzY0Nzg3Ny1NTEI5/MjU1NzIxODIwNl8w/OTIwMjUtRS53ZWJw" alt="perfume">
+    <h5 class="produto-nome">Lattafa Maahir Legacy</h5>
+    <p class="produto-nome">100ml. EDP Masculino</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+
+<!--SEXTA-->
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/G99HJA-Ek1saVFXu8OEfFVBFA4i0TjC0FaIZfqgSiFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJhZ3JhbmNleC5j/b20vaW1hZ2VzL3By/b2R1Y3RzL3BhcmVu/dC9tZWRpdW0vODE5/MTd3LmpwZw" alt="Perfume">
+    <h5 class="produto-nome">Lattafa Ser Hubbee</h5>
+    <p class="produto-nome">100ml. EDP Feminino</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/NaczE6HtnsJThvlzPGJnmG8JWq06pYurgcUZSrSEDuQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/aW50ZW5zZW91ZC5j/b20vY2RuL3Nob3Av/ZmlsZXMvMV84ZmU2/MGM2MS0zNTIzLTRl/ZWMtOGRlOS1mY2Ix/Mzc5MDg4ZTkucG5n/P3Y9MTY4NTAyNzM0/NQ" alt="perfume">
+    <h5 class="produto-nome">Lattafa RA'ED Luxe</h5>
+    <p class="produto-nome">100ml. EDP (MASC)</p>
+    <p class="preco-valor">R$311,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/YAsY65n_4rswDCsC7rzztFELMgZtEVJgmaApRFMgMt8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/Xzg0ODY5Ni1DQlQ4/ODgwNTYyOTA1NF8w/ODIwMjUtRS1wZXJm/dW1lLWxhdHRhZmEt/cGVyZnVtZXMtYmFk/ZWUtYWwtb3VkLW91/ZC1mb3ItZ2xvcnkt/MTAwbWwud2VicA" alt="perfume">
+    <h5 class="produto-nome">Lattafa Badee Al Of For Glory</h5>
+    <p class="produto-nome">100ml. EDP (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+<!--SETIMO-->
+
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/as1TBTwbRYLqTN9QHRCdI0TJz29MZ33rflAn_oEiL2E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudGNkbi5jb20u/YnIvaW1nL2ltZ19w/cm9kLzExMDEzODkv/MTgwX3BlcmZ1bWVf/YXJhYmVfZmVtaW5p/bm9fZW1hYW5fbGF0/dGFmYV9lYXVfZGVf/cGFyZnVtXzEwMG1s/XzE5MDNfMV8xZTc1/YzJhYTU4OGRmMTJj/ZjA5NWM0NGM2OWEw/N2QwZi5qcGVn" alt="Perfume">
+    <h5 class="produto-nome">Lattafa Al Emaan </h5>
+    <p class="produto-nome">100ml EDP. (FEMININO)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/PhKvkTpYTqKJUIOO966wgzEu1RGI_KOo0uwhpFw6VQA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudGNkbi5jb20u/YnIvaW1nL2ltZ19w/cm9kLzExMzY1ODEv/YW1lZXJfYWxfb3Vk/aF9lZHBfMTAwX21s/X2FyYWJlX2xhdHRh/ZmFfODg1XzJfM2Y4/YzQ0ZjYyNGNmOTg5/YjY5MzYwYTU1NjM2/MTllODYuanBn" alt="perfume">
+    <h5 class="produto-nome">Lattafa Ameer Al Oudh</h5>
+    <p class="produto-nome">EDP 100ml Unissex</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/wlO5cOiWOlFFlZIYADNKqnb9emZ2wbHsTd0bSGjK4aA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/ZG9vY2Euc3RvcmUv/MTU0MzUzL3Byb2R1/Y3RzL2FuYS1hYml5/ZWRoLXJvdWdlXzY0/MHg2NDArZmlsbF9m/ZmZmZmYuanBnP3Y9/MTczNTA0NzQyOSZ3/ZWJwPTA" alt="perfume">
+    <h5 class="produto-nome">Lattafa Ana Abiyedh Rouge</h5>
+    <p class="produto-nome">EDP 60ml Feminino</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+
+<!--OITAVA-->
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/cWshOQu0bYSWoCqzfjU3Ko3t2EeoQSE8Ef9lTuadhss/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLmVi/YXlpbWcuY29tL2lt/YWdlcy9nLzRZVUFB/T1N3ZX5ObjlDVTEv/cy1sNTAwLndlYnA" alt="Perfume">
+    <h5 class="produto-nome">Lattafa Raghba For Man</h5>
+    <p class="produto-nome">EDP 100ml Masculino</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/lZx0AVGusTq3NcStSXg6N68055S42QweDC6TldZ6C8I/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mcmFn/cmFuY2Vsb3JkLmNv/bS9jZG4vc2hvcC9m/aWxlcy80XzdfYzlh/MmQ5NmUtZmQ5ZC00/NmQyLWFlNjItMjc2/M2I4ZTk2ZmVlLnBu/Zz92PTE3MjgxMzEx/NTk" alt="perfume">
+    <h5 class="produto-nome">Lattafa Zanzibar</h5>
+    <p class="produto-nome">EDP 100ml Masculino</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/CPoEYlLMdFxl_rahEMOa_Ri8iTzT6BDcVuJ73optbTA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mcmFn/d2F2ZWJkLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyNS8w/NS84LTIuc3Zn" alt="perfume">
+    <h5 class="produto-nome">Lattafa Hayaati</h5>
+    <p class="produto-nome">100ml. EDP (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+
+<!--NONA-->
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/MCyYpZfRiYSTueKWmXt3vtJ05r7plPj-n90XDmH-ncw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzkzMDU2OC1NTEI5/NjkwNjgyNzIyMF8x/MTIwMjUtRS53ZWJw" alt="Perfume">
+    <h5 class="produto-nome">Lattafa Ansaam Silver Pride</h5>
+    <p class="produto-nome">100ml EDP. (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/T2uNWRX3FNLZde4cM9dwZc9ZXtSi6cuMu8l_ZRwwBuc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLmVi/YXlpbWcuY29tL2lt/YWdlcy9nLzVRWUFB/T1N3TGw1bkhwTjYv/cy1sNTAwLmpwZw" alt="perfume">
+    <h5 class="produto-nome">Lattafa The Kingdom</h5>
+    <p class="produto-nome">100ml EDP. (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/pdtWx16YsLXVOfpFt-F5pqeTDRyig6hkm9MuLOg3Yxc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzcxMzYzMS1NTEI4/ODU1NDUyNzE0Nl8w/NzIwMjUtRS53ZWJw" alt="perfume">
+    <h5 class="produto-nome">Lattafa Yara</h5>
+    <p class="produto-nome">100ml EDP. (FEM)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+
+<!--DECIMA-->
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/OaosRiJyQnT_9W4BUXbbJEMfZMbuUVO105VnaX7IVbI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NTFBMGxraEdSY0wu/anBn" alt="Perfume">
+    <h5 class="produto-nome">Lattafa Musamam Whithe Intense</h5>
+    <p class="produto-nome">Intense 100ml. EDP (FEM)</p>
+    <p class="preco-valor">R$311,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/ly7T5k7gzwBOtv1dS2FvLdjYZNSiZ50MVFkPMPi96jc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/Xzk5MjY2MS1NTEI4/OTM3MzM0NzI1OV8w/ODIwMjUtRS53ZWJw" alt="perfume">
+    <h5 class="produto-nome">Lattafa TERIAQ</h5>
+    <p class="produto-nome">100ml. EDP (FEM)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/IPGRJnv7aHQny9XWjKUGhIGxGBQr2lU_dQ2zK1aUKB8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NDFsMW1EbzdiOEwu/anBn" alt="perfume">
+    <h5 class="produto-nome">LATTAFA AMEER </h5>
+    <p class="produto-nome">100ml. (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+
+<!--decima primeira-->
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/777ibWUBMkuzYwsWUn3IT9dz-HytoS2_9CQsxxxlBHk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/YXdzbGkuY29tLmJy/LzYwMHgxMDAwLzI1/NjgvMjU2ODk0My9w/cm9kdXRvLzI1NzM1/NDc3Ni9pbWdfODY2/NS0zbmo3Y3d1MTh2/LmpwZWc" alt="Perfume">
+    <h5 class="produto-nome">LATTAFA SAFEER</h5>
+    <p class="produto-nome">100ml. EDP (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/ZcZ5TfQChTWAVHhry1M0NbJFCQ-KU54FSdBmearAFhY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hcm9t/ZWRlY2FwZWxpbi5j/ZG4ubWFnYXpvcmQu/Y29tLmJyL2ltZy8y/MDI1LzAxL3Byb2R1/dG8vNTQ1OS9hbnlj/b252LWNvbS0xNTMx/NjAxNzY5NS1wZXJm/dW1lLWFyYWJlLWZl/bWluaW5vLWxhdHRh/ZmEteWFyYS1jYW5k/eS1lZHAtMTAwbWwt/MS02NzY1NzI5MGQy/OGRiLnBuZz9pbXM9/Zml0LWluLzYwMHg2/MDAvZmlsdGVyczpm/aWxsKGZmZik" alt="perfume">
+    <h5 class="produto-nome">LATTAFA YARA CANDY</h5>
+    <p class="produto-nome">100ml. EDP (FEM)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/Wlx_3wwOQIVIvz3Yuch4emEggmQjE-biTnpfXblJMHA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudGNkbi5jb20u/YnIvaW1nL2ltZ19w/cm9kLzYyNjAzMC9u/b2JsZV9ibHVzaF9s/YXR0YWZhX2VhdV9k/ZV9wYXJmdW1fbWFz/Y3VsaW5vXzEwMG1s/XzcyNjdfMV85ZjMy/ZTA1M2UxZDFiNTI0/ZmYxNjM0YmNkOGIx/N2E2ZS5qcGc" alt="perfume">
+    <h5 class="produto-nome">Lattafa Al Noble Blush</h5>
+    <p class="produto-nome">100ml. EDP (FEM)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+
+<!--decima segunda-->
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/xy-4zTJlulyRSpHa3QUGhF79-NOY-_1OEmgsu2QXNJU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzkyOTY0My1NTEI5/MTY1NTgzMTk0N18w/OTIwMjUtRS53ZWJw" alt="Perfume">
+    <h5 class="produto-nome">Lattafa ASAD Bourbon</h5>
+    <p class="produto-nome">100ml. EDP (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://cdn.awsli.com.br/2500x2500/2639/2639447/produto/265156453/sem-t-tulo-2-vyfdeffcwx.jpeg" alt="perfume">
+    <h5 class="produto-nome">Lattafa Mahir Legacy Gold</h5>
+    <p class="produto-nome">100ml. EDP (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/lOpFYAHDEu9FzP8j6AzLBO19MLrc_HMq_w6NiU18K9Y/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/Xzc3OTk2Mi1NTEE4/Njc1NTU1NDI0NF8w/NzIwMjUtRS53ZWJw" alt="perfume">
+    <h5 class="produto-nome">Lattafa Mahir Legacy Black</h5>
+    <p class="produto-nome">100ml. EDP (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+
+<!--decima terceira-->
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/QfWxBav7IhpoUo-Z-ZrK06AL0mAI8EGtgHaZjUJDxaM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMtbmEuc3NsLWlt/YWdlcy1hbWF6b24u/Y29tL2ltYWdlcy9J/LzcxeHRhaGFtQVVM/LmpwZw" alt="Perfume">
+    <h5 class="produto-nome">Lattafa Pride Art Of Arabia III</h5>
+    <p class="produto-nome">100ml. (MASC)</p>
+    <p class="preco-valor">R$311,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/o9a66OFSCXgXe8JZd3o2EqElBctTI-xQvdFtYjLLZ9I/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sYXR0/YWZhZWcuY29tL2Nk/bi9zaG9wL2ZpbGVz/L0lNRy0xMzE0Lmpw/Zz92PTE3NTEyOTY0/MzImd2lkdGg9MTAw/MA" alt="perfume">
+    <h5 class="produto-nome">Lattafa SEHR</h5>
+    <p class="produto-nome">100ml. (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/4mtNANoAlp35_GZ8DbjoJaKrKvfJCDOWFZMhfMIT_6Y/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jYXNh/ZXZpZGVvbmV3aW8u/dnRleGFzc2V0cy5j/b20vYXJxdWl2b3Mv/aWRzLzI4OTg2MzA4/LTYwMC02MDAvMTc0/MzY4ODg3ODgyMjEu/anBnP3Y9NjM4Nzkz/ODM3MDkyOTcwMDAw/JndpZHRoPTQwMCZo/ZWlnaHQ9NDAwJmZv/cm1hdD13ZWJwJnF1/YWxpdHk9NzU" alt="perfume">
+    <h5 class="produto-nome">Lattafa Sakeena</h5>
+    <p class="produto-nome">100ml. EDP (FEM)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+
+<!--Decima quarta-->
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/RA5K3BvglWURWUsHvQPiqsQSQz5uSVnG0kZ81OVeYDw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9OUV9OUF85/ODkzNjUtTUxBNzk2/MDA0MjMwNjlfMDky/MDI0LU8ud2VicA" alt="Perfume">
+    <h5 class="produto-nome">Lattafa Khamrah QAHWA</h5>
+    <p class="produto-nome">100ml. (Unissex)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/8AWnxQJHUqgG4p2KOpLVd0TH0y5b_F71y6uvfnueuuQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/ZG9vY2Euc3RvcmUv/NjMwMjAvcHJvZHVj/dHMvbWF5YXItNF82/MjB4NjIwK2ZpbGxf/ZmZmZmZmLmpwZWc_/dj0xNzEyNzgwMjkz/JndlYnA9MA" alt="perfume">
+    <h5 class="produto-nome">Lattafa Mayar Natural Intense</h5>
+    <p class="produto-nome">100ml. EDP (FEM)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/6KH78J1iMggnsvcnmO2WteTciq0srfLtxLBMX6slpXQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NDF5N3NzNlZ0QUwu/anBn" alt="perfume">
+    <h5 class="produto-nome">Lattafa MOHR</h5>
+    <p class="produto-nome">100ml. (FEM)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+<!--Decima quinta-->
+
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/MfOMvYdHG7X4K_pQdfSd-ZBer4IOsXg9eMTU7ltF2iI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9OUV9OUF85/NzgwMjctTUxBODEw/NTgwMTY1MzVfMTEy/MDI0LU8ud2VicA" alt="Perfume">
+    <h5 class="produto-nome">Lattafa ART OF WOOD</h5>
+    <p class="produto-nome">100ml. (Unissex)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/NrdOFst6_9tm_INLm3sQIxVef_-OL64HoPKo_3mHQTM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hcm9t/ZWRlY2FwZWxpbi5j/ZG4ubWFnYXpvcmQu/Y29tLmJyL2ltZy8y/MDI0LzAzL3Byb2R1/dG8vNDY3NC9hbnlj/b252LWNvbS1uaWNo/ZS1lbWFyYXRpLWFs/LWRhbmEtbGF0dGFm/YS1lYXUtZGUtcGFy/ZnVtLXVuaXNzZXgt/MDQtNTEweDUxMC5w/bmc_aW1zPWZpdC1p/bi82MDB4NjAwL2Zp/bHRlcnM6ZmlsbChm/ZmYp" alt="perfume">
+    <h5 class="produto-nome">Lattafa Niche Al Dana</h5>
+    <p class="produto-nome">100ml. (Unissex)</p>
+    <p class="preco-valor">R$311,00</p>
+  </div>
+  <div id="lattafa" class="produto-card">
+    <img src="https://imgs.search.brave.com/1lOunP7QS9Q2Ezgvx4CTHcF1P-rK99_jv5mkJpigs-s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzYyNTMxNi1NTEI5/NDAxOTMxOTk1NF8x/MDIwMjUtRS53ZWJw" alt="perfume">
+    <h5 class="produto-nome">Lattafa PISA</h5>
+    <p class="produto-nome">100ml. (MASC)</p>
+    <p class="preco-valor">R$311,00</p>
+  </div>
+
+
+<!--decima sexta-->
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/mDT58W-hTbCTCSrj-57TtirzwTgZojXSAzOxJyNMLHM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9OUV9OUF82/MjcxMzctTUxBODMx/MjcwNzI0MzFfMDMy/MDI1LU8ud2VicA" alt="Perfume">
+    <h5 class="produto-nome">Lattafa His Confession</h5>
+    <p class="produto-nome">100ml. EDP (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://fimgs.net/mdimg/perfume/o.84302.jpg" alt="perfume">
+    <h5 class="produto-nome">Lattafa Badee Honor & Glory</h5>
+    <p class="produto-nome">100ml</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/-LlBA4_PI1yLKi7PgUMpl9QwQaIop9gNHBlmSDoUvfM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9OUV9OUF85/NDQ1NzEtTUxBODM2/MjQ5NzU0OTdfMDQy/MDI1LU8ud2VicA" alt="perfume">
+    <h5 class="produto-nome">Lattafa Pride 1910</h5>
+    <p class="produto-nome">100ml. (Unissex)</p>
+    <p class="preco-valor">R$311,00</p>
+  </div>
+
+
+<!--decima nona-->
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/hUtSEotfqiQHquI9tLGxxTqq-CrlP4DASMvSvg2KmDc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/b3VkbWFsYWtpLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/Mi8wNS9BandhZC1k/ZS1MYXR0YWZhLVBh/cmZ1bS1GcnVpdGUt/QW1icmUtcG91ci1G/ZW1tZS1PdWQtTWFs/YWtpMy53ZWJw" alt="Perfume">
+    <h5 class="produto-nome">Lattafa | AJWAD</h5>
+    <p class="produto-nome">60ml. (Unissex)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/8TL29aLFfn4-nassdxMJlzuMrxMlYHTgAfGSHdUFZqQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9OUV9OUF82/NDgwODktQ0JUODIx/NDIzODkyMzhfMDIy/MDI1LU8ud2VicA" alt="perfume">
+    <h5 class="produto-nome">LATTAFA | VICTORIA</h5>
+    <p class="produto-nome">100ml EDP. (FEM)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/Kjr-4Dhvw4GKEw10GI4LyIpheIN9uhgk5E_mMRJs-j4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/Xzc4NzczMC1NTEI4/NTIyMTA1NTgyMF8w/NjIwMjUtRS10aGFy/d2FoLWdvbGQtbGF0/dGFmYS1wcmlkZS1l/ZHAtMTAwbWwtbGFu/Y2FtZW50by53ZWJw" alt="perfume">
+    <h5 class="produto-nome">Lattafa Tharwah Gold</h5>
+    <p class="produto-nome">100ml. EDP (FEM)</p>
+    <p class="preco-valor">R$311,00</p>
+  </div>
+
+
+
+<!--vigésimo-->
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/9aAU0aeIIIoeoqRnoWmC2DwtYlutXjGalNYGtD6jy9E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9rbGFz/c2V5LmNvbS5ici9j/ZG4vc2hvcC9maWxl/cy9Db3BpYWRlQ29w/aWFkZUZPVE9QUk9E/VVRPMDJfMzEuc3Zn/P3Y9MTcxNTY5NTUy/NyZ3aWR0aD0xMzA" alt="Perfume">
+    <h5 class="produto-nome">Lattafa  MASA</h5>
+    <p class="produto-nome">100ml. EDP (Unissex)</p>
+    <p class="preco-valor">R$311,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://www.giraofertas.com.br/wp-content/uploads/2024/08/Yara-Tous-Lattafa-Eau-de-Parfum-Feminino-02.jpg" alt="perfume">
+    <h5 class="produto-nome">Lattafa Yara Tous</h5>
+    <p class="produto-nome">100ml. EDP (FEM)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/QZhzwjxxfVDKy5xa4oHcsOQkiteHSP9KU3efm47Dcoo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90cmlw/bGV0cmFkZXJzLmNv/bS9jZG4vc2hvcC9w/cm9kdWN0cy82Mzcw/N2E4NGI3NzhjZTZj/NjkxYzZlZDdfNTMw/eEAyeC5wbmc_dj0x/NjY4NDU1MDA4" alt="perfume">
+    <h5 class="produto-nome">LATTAFA ASDAAF ANDALEEB GREEN</h5>
+    <p class="produto-nome">100ml. EDP (FEM)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+
+<!--vigésimo primeiro-->
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/B1YpyQHIzTUhTp26ARMVJNLo81S42uqCA_FmF3bmGEE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9vYXNp/c3BlcmZ1bWVzdXNh/LmNvbS9jZG4vc2hv/cC9maWxlcy9oZnlt/MXpsbGZweDMzeWoy/bnkyYWdxdTAucG5n/P3Y9MTc1NTIwNjcz/OSZ3aWR0aD0zODQw" alt="Perfume">
+    <h5 class="produto-nome">LATTAFA DURRAH</h5>
+    <p class="produto-nome">100ml. (UNISSEX)</p>
+    <p class="preco-valor">R$311,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/yDMzUOPTf7A7ZQIjyZZuPr01ia3Wg_9o1wYPt3xkRQI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/Xzc2ODkwNC1NTEI4/OTI4MTU1NjA4MF8w/ODIwMjUtRS53ZWJw" alt="perfume">
+    <h5 class="produto-nome">Lattafa The Kingdom</h5>
+    <p class="produto-nome">100ML. FEMININO</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/H6xUqQeKzoKHMXHGQLb_5rVfVVUESN_YVsZYoQZxJSM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NDF3a3l1LVlzTUwu/anBn" alt="perfume">
+    <h5 class="produto-nome">LATTAFA RAGHBA</h5>
+    <p class="produto-nome">100ml EDP. (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+
+<!--vigésimo segundo-->
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/o4zwYJ7vMx3jJKtQRU50WZPDBXxes0kOIFptpFmUDkQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/amVhbnNtZWxsZ29v/ZC5jb20vY2RuL3No/b3AvZmlsZXMvU2hv/cC1mb3ItTGF0dGFm/YS1BdGhlZXJpLXBl/cmZ1bWUtb25saW5l/LW9yLWluLW1pYW1p/LndlYnA_dj0xNzUy/MDIxNDEyJndpZHRo/PTY0MA" alt="Perfume">
+    <h5 class="produto-nome">Lattafa ATHEERI</h5>
+    <p class="produto-nome">100ml. (EDP) Feminino</p>
+    <p class="preco-valor">R$411,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/DEYOhrIZhaZyGvgv3RIBcfj-Enj_6fhMASttThNw_mM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/ZG9vY2Euc3RvcmUv/MTUwOTg0L3Byb2R1/Y3RzL2NhaXhhLTJf/NjQweDY0MC5qcGc_/dj0xNzQwNDI1NTUw/JndlYnA9MA" alt="perfume">
+    <h5 class="produto-nome">Lattafa EMEER</h5>
+    <p class="produto-nome">100ml. EDP (UNISSEX)</p>
+    <p class="preco-valor">R$311,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/UpId1LoY8Ydvp3j23MRaCTn6wiNQtPgjTp8f-bEYLUI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/ZG9vY2Euc3RvcmUv/NjMwMjAvcHJvZHVj/dHMvbW9pLTFfNjQw/eDY0MCtmaWxsX2Zm/ZmZmZi5qcGVnP3Y9/MTcxNjQ3NzYyMSZ3/ZWJwPTA" alt="perfume">
+    <h5 class="produto-nome">Lattafa Yara Moi</h5>
+    <p class="produto-nome">100ml. EDP (FEMININO)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+
+<!--VIGÉSIMO TERCEIRO-->
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/JU8KSb1eygL0Wq8FA5-kJVaWqTl3rnD6wgW-0AgpNA8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/ZG9vY2Euc3RvcmUv/MzM1OS9wcm9kdWN0/cy9veXdhaTl4Zzky/dW5yNDhtOGRvYmZk/Ym5sYnp2c2p4am5v/c3pfNjQweDY0MCtm/aWxsX2ZmZmZmZi5q/cGc_dj0xNzY1MzA2/NjA5JndlYnA9MA" alt="Perfume">
+    <h5 class="produto-nome">LATTAFA ASAD ELIXIR</h5>
+    <p class="produto-nome">100ml. EDP (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/Zzt3m7l4ziXyVf0Lb5sj3iEVy-AYLi1eAtFD8xEAwfU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS50YWtlYWxvdC5j/b20vY292ZXJzX2lt/YWdlcy80NDYzNGQw/OGQ4MGU0NmQ1YWQx/NDQ1MjQxNTE5M2Ri/ZC9zLXBkcHhsLmZp/bGU" alt="perfume">
+    <h5 class="produto-nome">LATTAFA YARA ELIXIR</h5>
+    <p class="produto-nome">100ml. EDP (FEM)</p>
+    <p class="preco-valor">R$311,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/IaAcQ4TQ4WqlSq5BEYRqF9jTmc6qsSZ4GXZmJeJMgEw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLmVi/YXlpbWcuY29tL2lt/YWdlcy9nL2tTVUFB/ZVN3YWw5cGM1YVIv/cy1sOTYwLndlYnA" alt="perfume">
+    <h5 class="produto-nome">Lattafa Art Of Universe</h5>
+    <p class="produto-nome">100ml. EDP (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+
+<!-- vigesimo quarto-->
+
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/VcVln75vpAx0TKVxtrlcOxIjCT7xzYls8wzRmHeubDU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pby5j/b252ZXJ0aWV6LmNv/bS5ici9tL2x5b25w/ZXJmdW1hcmlhL3No/b3AvcHJvZHVjdHMv/aW1hZ2VzLzIwOTkv/bWVkaXVtL2VjbGFp/cmUtbGF0dGFmYS1l/YXUtZGUtcGFyZnVt/LWZlbWluaW5vXzU5/MDgucG5n" alt="Perfume">
+    <h5 class="produto-nome">Lattafa Eclaire</h5>
+    <p class="produto-nome">100ml. EDP (FEM)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/uP0o5nc4Lo1TXhsbo5_ei_R9UzacJ2Bqf1dTKcDEXhE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/YXdzbGkuY29tLmJy/LzYwMHg0NTAvMTM4/Mi8xMzgyNTQyL3By/b2R1dG8vMjg2MDQ1/OTM2LzE1Mjg3Mjc4/NDExLWQtODI4ODQ0/LW1sYjc2NzA4MDE0/NTQ4LTA2MjAyNC1v/LWZkOGM2ZWNiYjUy/NzNlNWZiNDE3MTc5/NjAyMzc2MjQ0LTQ4/LXZ0cWxlMDA1d3ou/anBn" alt="perfume">
+    <h5 class="produto-nome">Lattafa Hayati Florence</h5>
+    <p class="produto-nome">100ml. EDP (FEM)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/9ETVJpJz21JPLgESZqydSldAl_WRCjKnMFhd4aonsTE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mcmFn/cmEuZGUvY2RuL3No/b3AvZmlsZXMvTGF0/dGFmYV9QYXJmdW1f/VGVyaWFxX0ludGVu/c2VfRWF1X2RlX1Bh/cmZ1bV8xMDBtbC5q/cGc_dj0xNzU2MTIy/MTk2JndpZHRoPTE0/NDU" alt="perfume">
+    <h5 class="produto-nome">Lattafa TERIAQ Intense</h5>
+    <p class="produto-nome">100ml. EDP (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+
+
+<!--Maison alhambra - parte 2 / primeiro-->
+
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/utmiCJBEz90oDeUxl9pM4DoTq2cttkCwrW-MSonsRDg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/YXdzbGkuY29tLmJy/LzYwMHg3MDAvMjQ1/NS8yNDU1Mjc4L3By/b2R1dG8vMzM3ODc0/NTUxL2FscGluZV8x/LTFneDB4bXpzc2gu/cG5n" alt="Perfume">
+    <h5 class="produto-nome">Maison Alhambra  Alpine</h5>
+    <p class="produto-nome">100ml. EDP (MASC)</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/SFTvxksV_uvTvdd6VWzcOmURIkWFvOy-Ihl-FGePbA0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mcmFn/cmEuZGUvY2RuL3No/b3AvZmlsZXMvTWFp/c29uX0FsaGFtYnJh/X1BhcmZ1bV9DYXNz/aXVzX0VhdV9kZV9Q/YXJmdW1fMTAwX21s/LmpwZz92PTE3NTYx/MjI2NjImd2lkdGg9/MTk0Ng" alt="perfume">
+    <h5 class="produto-nome">Maison Alhambra Cassiu</h5>
+    <p class="produto-nome">EDP 100ml Masculino</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+  <div class="produto-card">
+    <img src="https://imgs.search.brave.com/0aUsJPlDcpza4Hp66A_Dn17ncm6GDuHWJacSctj70yY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NDF4d3NBQzdobkwu/anBn" alt="perfume">
+    <h5 class="produto-nome">Maison Alhambra Cerulean Blue</h5>
+    <p class="produto-nome">EDP 100ml Masculino</p>
+    <p class="preco-valor">R$280,00</p>
+  </div>
+
+
+<!--Segundo-->
+
+<div class="produto-card">
+<img src="https://soghaat.co.uk/cdn/shop/files/Victorioso-Legend-Perfume-100ml-EDP-by-Maison-Alhambra-1.jpg?v=1777400344&width=1200" alt="Perfume">
+<h5 class="produto-nome">Maison Alhambra Exclusif Safron</h5>
+<p class="produto-nome">100ml. EDP (Unissex)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/CQT75cbgdjyrAFq_LAzQop2wS19Q3uvcYuW3xx5wqss/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9iZWF1/dHlob3VzZS5jb20v/Y2RuL3Nob3AvZmls/ZXMvMDRzcWRmZG1h/cC5wbmc_dj0xNzIz/OTM1NjQ1JndpZHRo/PTE2MDA" alt="perfume">
+<h5 class="produto-nome">Maison Alhambra Maitre de Blue</h5>
+<p class="produto-nome">EDP 100ml Masculino</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/fTm2rQGJQIGEGanHTncbJE9lyhHJoFk5k9ExQVumD74/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/YXdzbGkuY29tLmJy/LzYwMHg0NTAvMTM4/Mi8xMzgyNTQyL3By/b2R1dG8vMjkzNTky/OTQ1LzgxNmUzZjFi/MTkwOWQ5N2I4ZjUw/NGI4ODQ5OWEwM2M5/LTVqNDJhMzFhOXUu/anBn" alt="perfume">
+<h5 class="produto-nome">Maison Alhambra Seduction Vip Pour</h5>
+<p class="produto-nome">Homme 100ml EDP (FEM)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+
+
+<!--Terceiro-->
+
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/kQSLl3YgRZWfO8Dvh13_LqbjV3MObDzCgE9D0sFEq_c/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzcwMzA4My1NTEI5/MTkzOTE2NTc5MF8w/OTIwMjUtRS53ZWJw" alt="Perfume">
+<h5 class="produto-nome">Maison Alhambra Perseus</h5>
+<p class="produto-nome">100ml EDP. (MASC)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/xoWLCRdy2pAFQZMkmsNDKbfv36EWDNNDwAnGGyKxNGc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jcnlz/cGVyZnVtYXJpYS5j/b20uYnIvd3AtY29u/dGVudC91cGxvYWRz/LzIwMjQvMDEvcGVy/ZnVtZW1haXNvbmFs/aGFtYnJhcGhpbG9z/Y2VudHJvZWRwMTAw/bWwtMTAyNHgxMDI0/LTEuanBn" alt="perfume">
+<h5 class="produto-nome">Maison Alhambra | Philos CENTRO</h5>
+<p class="produto-nome">EDP. 100ml. (UNISSEX)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/mLuA4TxtB14ER6GXpBMepUQrUdiqcaCNAIw_t5lXIXI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kY2Ru/LXVzLm1pdGllbmRh/bnViZS5jb20vc3Rv/cmVzLzAwNS8yODMv/NzEyL3Byb2R1Y3Rz/L3BoaWxvcy1yb3Nz/by1mLTkxNDYxMTYz/ZGVmM2YwZWMyMzE3/NzA3NTA2MzI3NDY0/LTQ4MC0wLndlYnA" alt="perfume">
+<h5 class="produto-nome">Maison Alhambra | Philos ROSSO</h5>
+<p class="produto-nome">EDP. 100ml. (UNISSEX)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+
+
+<!--quarto-->
+
+
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/G8EvgwiylCoZTmr455q6jOq-7wByPKqZXykG5Vi-_Ns/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9OUV9OUF85/NDgxNTctQ0JUODE3/MjE3ODQxODlfMTIy/MDI0LU8ud2VicA" alt="Perfume">
+<h5 class="produto-nome">Maison Alhambra | Philos NOIR</h5>
+<p class="produto-nome">EDP. 100ml. (UNISSEX)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/9kueTJP3-ajlbEu3FCNEvynzxdbav2ybnBhNv4U8Erg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9yZXMu/Y2xvdWRpbmFyeS5j/b20vYmVsZXphLW5h/LXdlYi9pbWFnZS91/cGxvYWQvd18xNTAw/LGZfYXZpZixmbF9w/cm9ncmVzc2l2ZSxx/X2F1dG86ZWNvLHdf/ODAwL3YxL2ltYWdl/bnMvcHJvZHVjdHMv/TVAzMTgyMDQvMi5q/cGc" alt="perfume">
+<h5 class="produto-nome">Maison Alhambra | Philos PURA</h5>
+<p class="produto-nome">EDP. 100ml. (UNISSEX)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/8H5KiPgc5QJmYu5_UKwlZh-pJF1NN36778mW9TFqQNs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzY2MDEzNi1NTEI4/OTA5MDI0Njc0M18w/NzIwMjUtRS53ZWJw" alt="perfume">
+<h5 class="produto-nome">Maison Alhambra Salvo Intense</h5>
+<p class="produto-nome">100ml. EDP (MASC)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+
+
+<!--Quinto-->
+
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/fkbgSAcbhcz1ORekPCWKk44z37hfo9HsHQrqc902YBk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcmV2/aWV3LnJlZGQuaXQv/Y2gtMjEyLW1lbi12/cy1tYWlzb24tYWxo/YW1icmEtbm8tMi1t/ZW4tdjAtbGsxM3l5/aW53emtlMS5qcGVn/P3dpZHRoPTY0MCZj/cm9wPXNtYXJ0JmF1/dG89d2VicCZzPWY3/ZjA4NDM1ODg5NjFh/NjQ4NTMyYzA5OTU3/NTcyM2VmOGY2MTdk/NmQ" alt="Perfume">
+<h5 class="produto-nome">Maison Alhambra No.2 MEN</h5>
+<p class="produto-nome">100ml. (MASC)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/dhj7anG5bFA9qMQz700UlS2rH8jiNhFP4_b0rkGCrlk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLmVi/YXlpbWcuY29tL2lt/YWdlcy9nL0VzY0FB/T1N3REVWbUt-RjMv/cy1sNTAwLndlYnA" alt="perfume">
+<h5 class="produto-nome">Maison Alhambra Salvo Elixir</h5>
+<p class="produto-nome">100ml. EDP (MASC)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/dfj22KrCEVENBbfxUJuVLd8dVYvp6sY9ViICaghSWM0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/YXdzbGkuY29tLmJy/LzYwMHgxMDAwLzIz/ODAvMjM4MDQ0MC9w/cm9kdXRvLzMxMzAw/MzI4Ni9wZXJmdW1l/LWFsaXZlLW5vdy1t/YWlzb24tYWxoYW1i/cmEtLTYtLWo4YzRp/MTN2MmMuanBn" alt="perfume">
+<h5 class="produto-nome">Maison Alhambra</h5>
+<p class="produto-nome">Alive Now 100ml. (FEM)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+
+
+<!--Sexto-->
+
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/mX4f50WVENlEGlZNFSlq71WwagEpADOrref1J9LBnas/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzgz/NDU1Ni1DQlQ4MzAz/NDMxNTM5M18wMzIw/MjUtRi53ZWJw" alt="Perfume">
+<h5 class="produto-nome">Maison Alhambra Lionheart Woman</h5>
+<p class="produto-nome">100ml. EDP (FEM)</p>
+<p class="preco-valor">R$311,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/tKMJRXfoW_agtiVAlnBFISsGKxh_8xq76x2mo78J2S4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9iZWF1/dHlob3VzZS5jb20v/Y2RuL3Nob3AvZmls/ZXMvMDVqdHh5M2p5/Zi5wbmc_dj0xNzIz/OTM1NjE4JndpZHRo/PTE2MDA" alt="perfume">
+<h5 class="produto-nome">Maison Alhambra LA VOIE</h5>
+<p class="produto-nome">100ml. EDP (FEM)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/31c5-Senzh8N7hAhltUnn9z86RsSVqU12WVcabT5SRk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/Xzg5NzM5NS1DQlQx/MDM2MjIyOTAxNjBf/MDEyMDI2LUUud2Vi/cA" alt="perfume">
+<h5 class="produto-nome">Maison Alhambra Dellilah Blanc</h5>
+<p class="produto-nome">100ml. EDP (FEM)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+
+
+<!--Oitavo-->
+
+
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/gaxDVwfTkCmAfN2dJJwfrAIUV8ZOv7ag1MqEnN5goqY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzY5NTY0Ny1NTEI4/ODYzNzcxODM0MF8w/NzIwMjUtRS1wZXJm/dW1lLWFyYWJlLW1h/c2N1bGluby1vcmln/aW5hbC1zYWx2by1p/bnRlbnNlLW1haXNv/bi1hbGhhbWJyYS1l/YXUtZGUtcGFyZnVt/LTEwMC1tbC53ZWJw" alt="Perfume">
+<h5 class="produto-nome">Maison Alhambra Salvo PARFUM</h5>
+<p class="produto-nome">100ml. EDP (MASC)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/GztIO_5fkS0rlpvPdVjoUTFa-DtQy1CBL8RpcOVvGnQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sYXBl/cmZ1bWVyaWFkZWxl/b24uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDI0LzA0L0hP/MzU2NS5qcGc" alt="perfume">
+<h5 class="produto-nome">Maison Alhambra JEAN LOWE Fraiche</h5>
+<p class="produto-nome">100ml. (UNISSEX)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/ocZvPNPSKZmtlAetfhxnjlMDEuuPJUNC1mgotBC5D1E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9iZWF1/dHlob3VzZS5jb20v/Y2RuL3Nob3AvZmls/ZXMvMDRjOTZ4cWt3/ei5wbmc_dj0xNzUy/MDcyNzg2JndpZHRo/PTE1MDA" alt="perfume">
+<h5 class="produto-nome">Maison Alhambra Coral Blush</h5>
+<p class="produto-nome">80ml. EDP (FEM)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+
+
+<!--nona-->
+
+
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/V_D2IVS-smZJYy0Nrnedjba_QKdcNYJV3ciMr1-WmJI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZnJpZGF5Y2hhcm0u/Y29tL2Nkbi9zaG9w/L2ZpbGVzL215dGgy/LmpwZz92PTE2OTI5/NzE3NTI" alt="Perfume">
+<h5 class="produto-nome">Maison Alhambra THE MYT</h5>
+<p class="produto-nome">100ml. (UNISSEX)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/_dPmA2FSyQTVGafH4cBV41-VwM175cXMladP_Z7qY2w/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/ZG9vY2Euc3RvcmUv/MTUyOTg0L3Byb2R1/Y3RzL2toaHdvdGNx/eHR2ZGE5aXk2cHI0/YzBxZWJ5cW1mczZ6/ejJ6eF82NDB4NjQw/K2ZpbGxfZmZmZmZm/LmpwZz92PTE3MzU5/NTU1NzUmd2VicD0w" alt="perfume">
+<h5 class="produto-nome">Maison Alhambra Tenderina</h5>
+<p class="produto-nome">100ml. EDP (Feminino)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/9rqKyKJUUTrrYq-TyR8KaqMwo6ErHC658bIvezl8Cf0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZmVyd2VyLmNvbS9p/bWFnZXMvbWFpc29u/LWFsaGFtYnJhLWxh/LXZpdmFjaXRlLTk2/OTMtMS1sLndlYnA" alt="perfume">
+<h5 class="produto-nome">Maison Alhambra La Vivacité</h5>
+<p class="produto-nome">100ml. (EDP) Feminino</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+
+
+<!--Decima-->
+
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/NevU0j58CZQ_QBvUtgwWZIJvc_fWyuvrwDqIZaxdkno/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9OUV9OUF85/MzgxMDktTUxBODQ0/NzE4MDQ2MTlfMDUy/MDI1LU8ud2VicA" alt="Perfume">
+<h5 class="produto-nome">Maison Alhambra L' Intrude</h5>
+<p class="produto-nome">100ml. EDP (FEMININO)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/kZFLBPmfFP2jxV81uV8eFqU1UTV77l6iaIivDEkMXeI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NjF6d3dFVklWTUwu/anBn" alt="perfume">
+<h5 class="produto-nome">Maison Alhambra Jardin de Paris</h5>
+<p class="produto-nome">100ml. EDP (FEM)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/V50D6Zzl5qcv8h4_xV7RquciE_oY15L7SGETiP4bjl4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zaWxr/cGVyZnVtZXMuY2wv/Y2RuL3Nob3AvcHJv/ZHVjdHMvbWFpc29u/LWFsaGFtYnJhLXBh/bnRoZXItcG91ci1o/b21tZS1lZHAtMTAw/bWwtU2lsay1QZXJm/dW1lcy5qcGc_dj0x/NzQ3Njg1ODYyJndp/ZHRoPTEyMTQ" alt="perfume">
+<h5 class="produto-nome">Maison Alhambra Phanter</h5>
+<p class="produto-nome">(100ml. EDP (MASC))</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+
+
+<!--Primeiro/ Armaf -->
+
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/USeMOh9FIRc2FhlIkD0yxI_dTYwRsZQt5K-WGfXxbMo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hbGxh/cmFiaWMuaW4vY2Ru/L3Nob3AvZmlsZXMv/WWVhaF9NYW4yXzYw/MHgud2VicD92PTE3/NjY2NjEzOTY" alt="Perfume">
+<h5 class="produto-nome">Maison Alhambra Yeah!</h5>
+<p class="produto-nome">100ml. EDP (MASC)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/Ul5cENRHtS92qbgyHXVejTAack1IUg1nMOASNPKgMf8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9OUV9OUF85/NjIyODAtTUxBODUx/MDY2NDczNTBfMDUy/MDI1LU8ud2VicA" alt="perfume">
+<h5 class="produto-nome">ARMAF Club de Nuit Maleka</h5>
+<p class="produto-nome">105ml. EDP (FEM)</p>
+<p class="preco-valor">R$311,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/X7sdnoFqcAGoUATuS2RkIiJZlfYWcd1yXdciRd158Z8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hcm1h/ZnBlcmZ1bWUuY29t/L2Nkbi9zaG9wL2Zp/bGVzLzJfOGM3NmY0/NzctN2EyNi00NTYy/LWFkZmQtZDdhMjFi/NzcwNjRiXzEwMjR4/MTAyNC5qcGc_dj0x/NzUzOTU3NTM3" alt="perfume">
+<h5 class="produto-nome">Armaf Club de Nuit Iconic</h5>
+<p class="produto-nome">EDP. 105ml (MASC)</p>
+<p class="preco-valor">R$311,00</p>
+</div>
+
+
+<!--Segundo-->
+
+<div id="club" class="produto-card">
+<img src="https://imgs.search.brave.com/5FdYhS2iHCpskvhot9ZgRWNvfFeynhsGrOOsQevKAHc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzY2NTc1Ny1NTEI5/NTE0MDIwMjIwNl8x/MDIwMjUtRS53ZWJw" alt="Perfume">
+<h5 class="produto-nome">Armaf Club de Nuit Intense</h5>
+<p class="produto-nome">EDT 105ml Masculino</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/RnQowxoOW_rO7PH7aHU7yymFUMA8ZG1R8uO6W7H0bEY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9OUV9OUF84/NTg4OTMtTUxVNzcz/NDkxODczNDVfMDYy/MDI0LU8ud2VicA" alt="perfume">
+<h5 class="produto-nome">Armaf Club de Nuit Precieux</h5>
+<p class="produto-nome">55ml Extrait de Parfum(MASC)</p>
+<p class="preco-valor">R$411,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/VYo6q67kMIu7FjFK-Knlma7AsMZMIZSdaz3LTnfyIx0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzY4MjAzOC1NTEI4/ODk5NDAxMjI1N18w/NzIwMjUtRS53ZWJw" alt="perfume">
+<h5 class="produto-nome">Armaf Club de Nuit Woman</h5>
+<p class="produto-nome">100ml EDP. (FEM)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+
+
+<!--terceiro-->
+
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/lbaf71qqwLSbowLmW9yGaJ0ql7Zj5J3nM1XR0MBQWJ0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzYyMzkzNi1NTFU3/MDA5MjE2MjY4MF8w/NjIwMjMtRS53ZWJw" alt="Perfume">
+<h5 class="produto-nome">ARMAF Club de Nuit Untold</h5>
+<p class="produto-nome">105ml EDP. (MASC)</p>
+<p class="preco-valor">R$311,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/Plb-n1aoc_8uB6_BSUokoG68gDtIforUMKTwFagV7YU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/MzF4dUo2TWN2WUwu/anBn" alt="perfume">
+<h5 class="produto-nome">ARMAF Club de Nuit Imperiale</h5>
+<p class="produto-nome">105ml EDP. (FEM)</p>
+<p class="preco-valor">R$311,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/X1j8W0h0Yn6g-GY_fPmzs__nYqkW6vhCVpc5iObpWYw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9OUV9OUF82/NTc0MjYtTUxVNzI2/NzcxMzU0MDNfMTEy/MDIzLU8ud2VicA" alt="perfume">
+<h5 class="produto-nome">ARMAF Club de Nuit Sillage</h5>
+<p class="produto-nome">105ml EDP. (UNISSEX)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+
+<!--Quarto-->
+
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/PCvYvkl11A_57vIXF-ekhjQzEuY31XZsTjbaryRaIYU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLmVi/YXlpbWcuY29tL2lt/YWdlcy9nL3ZIWUFB/ZVN3SFNscGJXZGov/cy1sNTAwLnBuZw" alt="Perfume">
+<h5 class="produto-nome">ARMAF Odyssey Homme
+White Edition</h5>
+<p class="produto-nome">60ml. EDP (MASC)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/36MvDHhbwdA0cE6rwEnbYafamfsEza0Yfl9u0bArGXQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pNS53/YWxtYXJ0aW1hZ2Vz/LmNvbS9zZW8vQXJt/YWYtTWVuLXMtT2R5/c3NleS1BcXVhLUVE/UC1TcHJheS0zLTQt/b3otRnJhZ3JhbmNl/cy02Mjk0MDE1MTY2/MTMyXzZjMjY1NDhi/LWZlMDYtNDZjNy1i/NGI2LTNhNjEzY2E4/ZTBkMC45MTRiYWNj/MDg3Y2JjYjFhOWEy/MzcxM2ZhMGUxNTY4/OC5qcGVnP29kbkhl/aWdodD01NzMmb2Ru/V2lkdGg9NTczJm9k/bkJnPUZGRkZGRg" alt="perfume">
+<h5 class="produto-nome">ARMAF Odyssey Aqua Edition</h5>
+<p class="produto-nome">60ml. EDP (MASC)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/Nst2FTW22mtMB-OfhXX0zqooknkD--pGYh54eowRnvg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hcm1h/Zi5jb20vY2RuL3No/b3AvZmlsZXMvaW1h/Z2UtMjAyMy0wNS0w/NFQxMDE1NTQuMjM1/LmpwZz92PTE3Mzkx/MTE1Njkmd2lkdGg9/MTYwMA" alt="perfume">
+<h5 class="produto-nome">ARMAF Odyssey AOUD</h5>
+<p class="produto-nome">60ml. EDP (MASC)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+
+
+<!--Quinto-->
+
+
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/SYX1VjO5npGV7T9pAUQb3rGb-hOtHlZlcp_5lxd3v3g/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9iZWF1/dHlob3VzZS5jb20v/Y2RuL3Nob3AvZmls/ZXMvMDJzMDdzazlw/dC5wbmc_dj0xNzcw/ODQ1NDMyJndpZHRo/PTE0Njk" alt="Perfume">
+<h5 class="produto-nome">ARMAF Odyssey Candee</h5>
+<p class="produto-nome">100ml. EDP (FEM)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/2Xjjh83iNMZDuN1XzHvFG0I6SoFwhBT36GTdx2adQ9Y/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJhZ3JhbmNleC5j/b20vaW1hZ2VzL3By/b2R1Y3RzL3NrdS9s/YXJnZS9hcm1hbTM0/ZWRjNi5qcGc" alt="perfume">
+<h5 class="produto-nome">ARMAF Odyssey Mandarin Sky</h5>
+<p class="produto-nome">100ml. EDP (MASC)</p>
+<p class="preco-valor">R$311,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/vD_pXM8mmFDCgnX_1b3VFimd48wN88kGEI49m0lzAMo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJhZ3JhbmNleC5j/b20vaW1hZ2VzL3By/b2R1Y3RzL3BhcmVu/dC9tZWRpdW0vODM2/NjB3LmpwZw" alt="perfume">
+<h5 class="produto-nome">ARMAF YUM YUM</h5>
+<p class="produto-nome">100ml. EDP (FEMININO)</p>
+<p class="preco-valor">R$311,00</p>
+</div>
+
+
+<!--Sexto-->
+
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/PVbNfa_rFZJL-pFg1C2aJPcVFVJuRoUbyi6p5vodaWo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/YXdzbGkuY29tLmJy/LzYwMHg0NTAvNTkz/LzU5Mzk0NS9wcm9k/dXRvLzEzNTc5MjQ2/OS9iNTQ4ODUxZTU4/LmpwZw" alt="Perfume">
+<h5 class="produto-nome">ARMAF Club de Nuit Milestone</h5>
+<p class="produto-nome">105ml. EDP (UNISSEX)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/75a7HjJrxHpmYeQWB_RYRnjCSbEq4ceyJNOwTh0vosM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/aW50ZW5zZW91ZC5j/b20vY2RuL3Nob3Av/ZmlsZXMvNF8wNTE0/ZDg1NC1lNjE3LTQx/NmYtODJlNS0wNGQx/NDY1YjNjZmFfbGFy/Z2Uud2VicD92PTE3/NTczNDQ0NjU" alt="perfume">
+<h5 class="produto-nome">ARMAF Club de Nuit Precieux IV</h5>
+<p class="produto-nome">55ml. Extrait de PARFUM (MASC)</p>
+<p class="preco-valor">R$411,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/gp_YYAdSdcPLBU-FKIm85lMBcWseyL1W759fhVuefFg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/ODF3M2VEc29TbEwu/anBn" alt="perfume">
+<h5 class="produto-nome">Afnan SOUVENIR Desert Rose</h5>
+<p class="produto-nome">EDP 100ml Feminino</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+
+
+<!--Primeiro - AFNAN-->
+
+
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/7AjNf9q0lSoQg9KNtzCH1vPyhbRB8GydTVeIUpZUoyk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS56aWQuc3RvcmUv/YmZhYTM0NTQtMGU5/MC00ZjkxLTkxYzct/YmU0Y2IxNzUyYWM4/L2QzNDFiNGZlLTll/NjMtNDgyMS04MzA4/LTAzNWQ4YTEwNTNl/ZC5qcGc" alt="Perfume">
+<h5 class="produto-nome">Afnan Supremacy in Heaven</h5>
+<p class="produto-nome">EDP 100ml (Masculino)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/o4gcc1yvffrLRKuowXVcqPmphunwpEm0DJ7HNeJWt2A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzY4MzQzMy1NTEI3/MjgzMDQ1NzU1OV8x/MTIwMjMtRS1wZXJm/dW1lLWFmbmFuLXN1/cHJlbWFjeS1ub2ly/LWVhdS1kZS1wYXJm/dW0tMTAwbWwtb3Jp/Z2luYWwtbGFjcmFk/by1leGNsdXNpdm8u/d2VicA" alt="perfume">
+<h5 class="produto-nome">Afnan Supremacy Noir</h5>
+<p class="produto-nome">EDP 100ml Masculino</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/cetsg07kjAXvdOzL-t3AhBeZaUVy9LKHLCl3U_ogyFo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9vbmFy/eXMuY29tL2Nkbi9z/aG9wL2ZpbGVzLzYy/OTAxNzEwNzU3Njku/anBnP3Y9MTc3MDAw/MjM2NSZ3aWR0aD0x/OTQ2" alt="perfume">
+<h5 class="produto-nome">AFNAN 9pm Black</h5>
+<p class="produto-nome">100ml EDT. (MASC)</p>
+<p class="preco-valor">R$311,00</p>
+</div>
+
+<!--segundo-->
+
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/PlphRSBaCW9tKSkdY_KxpTFsB-fhOyhOJBbBKDi4Myk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pNS53/YWxtYXJ0aW1hZ2Vz/LmNvbS9zZW8vQWZu/YW4tOUFtLURpdmUt/RURQLVNwcmF5LTMt/NC1vei1Gb3ItTWVu/XzM5YTcwZmM0LWRm/YzEtNGZjZi04ODU5/LWIyMjg2YTAwMmYy/Yy44YjNiMDQ1MDFj/MDQ3YTFlMzBjYjc1/ZTZkMmQxY2RiNi5q/cGVnP29kbkhlaWdo/dD01NzMmb2RuV2lk/dGg9NTczJm9kbkJn/PUZGRkZGRg" alt="Perfume">
+<h5 class="produto-nome">AFNAN 9pm Blue</h5>
+<p class="produto-nome">100ml EDT. (MASC)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/2no1TypjngE3qbvpu7Y_V6k5-JiyV4j-d41ft1n862I/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mcmFn/c3RhbGsuaW4vd3At/Y29udGVudC91cGxv/YWRzLzIwMjUvMDMv/QWZuYW4tU3VwcmVt/YWN5LUNvbGxlY3Rv/cnMtRWRpdGlvbi5w/bmc" alt="perfume">
+<h5 class="produto-nome">AFNAN Supremacy Collectors Edition</h5>
+<p class="produto-nome">100ml. EDP (MASC)</p>
+<p class="preco-valor">R$311,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/jnGZsowaIYtd1dNBq9oD7afd1mojNTnprFus2-frF00/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzYwNDQzMC1NTEI5/MTk3Mzc4NzQwNF8w/OTIwMjUtRS53ZWJw" alt="perfume">
+<h5 class="produto-nome">AFNAN Turathi Blue</h5>
+<p class="produto-nome">90ml. EDP (MASC)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+
+
+<!--terceiro-->
+
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/WrO-_jxLION8bULZRaD_E2ajwv1jkR9V1DJV_DcXKm8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzgwMjcyMy1NTEI5/MTQ5ODkxMTYyMV8w/OTIwMjUtRS53ZWJw" alt="Perfume">
+<h5 class="produto-nome">AFNAN | 9PM REBEL</h5>
+<p class="produto-nome">100ml EDP. (MASC)</p>
+<p class="preco-valor">R$311,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/3SCQDdUzSZkk9PeoLk2ul-ak5WjYJHQNayBMnxrnKfM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/Xzc5MTIxMC1NTEE0/MDkwMDE0OTI5OV8w/MjIwMjAtRS53ZWJw" alt="perfume">
+<h5 class="produto-nome">AFNAN SUPREMACY POUR HOMME.</h5>
+<p class="produto-nome">100ml EDP. (MASC)</p>
+<p class="preco-valor">R$311,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/rsjeTLqH-Oi5aP7Xsws9EDkND3IG32O-jvBirX6ZVwE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9teXNt/ZWxsc2hvcC5jb20v/Y2RuL3Nob3AvZmls/ZXMvMTEtMTIuanBn/P3Y9MTc1ODM1Nzg1/NyZ3aWR0aD0xMjAw" alt="perfume">
+<h5 class="produto-nome">AFNAN 9PM ELIXIR</h5>
+<p class="produto-nome">100ml EDP. (MASC)</p>
+<p class="preco-valor">R$311,00</p>
+</div>
+<div class="produto-card">
+<img src="https://imgs.search.brave.com/zSWctIBShDx6_1_eGtOzzVC_xUI608psVv39UIf4hMg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wdXJw/bGVvcmNoaWRjZG4u/Yi1jZG4ubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDI1LzA3/L1R1cmF0aGktRWxl/Y3RyaWMtQWZuYW4t/Qm94LmpwZw" alt="perfume">
+<h5 class="produto-nome">AFNAN Turathi Electric</h5>
+<p class="produto-nome">90ml. EDP (MASC)</p>
+<p class="preco-valor">R$280,00</p>
+</div>
+
+<div id="liquid_brun" class="produto-card">
+<img src="https://imgs.search.brave.com/H3l-igiynA0ctH3yAwOBE2iTUVRNTgAofcwjaxHYXD4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wYXJm/dW1lcmllbWFuaWEu/Y2EvY2RuL3Nob3Av/ZmlsZXMvZnJlbmNo/LWF2ZW51ZS1saXF1/aWQtYnJ1bi53ZWJw/P3Y9MTc1NjkyOTY5/NSZ3aWR0aD00ODA" alt="perfume">
+<h5 class="produto-nome">Freench Avenue Liquid Brun</h5>
+<p class="produto-nome">100ml. EDP (MASC)</p>
+<p class="preco-valor">R$311,00</p>
+</div>
+</div>
